@@ -8,12 +8,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="62b3538f-e6f0-4c26-890a-9ba9d4326738" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DNS-Switcher/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Switcher.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Switcher/Switcher.csproj" afterDir="false" />
-    </list>
+    <list default="true" id="62b3538f-e6f0-4c26-890a-9ba9d4326738" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -102,8 +97,16 @@
       <option name="presentableId" value="Default" />
       <updated>1663755589846</updated>
       <workItem from="1663755590163" duration="5536000" />
-      <workItem from="1663761628464" duration="921000" />
+      <workItem from="1663761628464" duration="964000" />
     </task>
+    <task id="LOCAL-00001" summary="Init">
+      <created>1663762577988</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1663762577988</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -124,5 +127,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init" />
   </component>
 </project>
