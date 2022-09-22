@@ -1,0 +1,30 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Switcher"
+             xmlns:themes="clr-namespace:Material.Styles.Themes;assembly=Material.Styles"
+             x:Class="Switcher.App">
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Resources>
+        <themes:BundledTheme BaseTheme="Dark" PrimaryColor="Teal" SecondaryColor="Amber"/>
+    </Application.Resources>
+    <Application.Styles>
+        <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
+        <StyleInclude Source="avares://Switcher/Frontend/Controls/View/ToggleAnimation.axaml"/>
+        <Style>
+            <Style.Resources>
+                <SolidColorBrush x:Key="PrimaryColorBrush" Color="#98ff98"></SolidColorBrush>
+                <SolidColorBrush x:Key="SecondaryColorBrush" Color="#7ae17a"></SolidColorBrush>
+                <SolidColorBrush x:Key="PrimaryFontColorBrush" Color="#FFFFFF"></SolidColorBrush>
+                <SolidColorBrush x:Key="SecondaryFontColorBrush" Color="#cdcdcd"></SolidColorBrush>
+                <SolidColorBrush x:Key="PrimaryBackgroundBrush" Color="#161616"></SolidColorBrush>
+                <SolidColorBrush x:Key="SecondaryBackgroundBrush" Color="#1E1E1E"></SolidColorBrush>
+                <SolidColorBrush x:Key="ImageMask" Color="#f10000"></SolidColorBrush>
+
+            </Style.Resources>
+        </Style>
+        
+    </Application.Styles>
+</Application>

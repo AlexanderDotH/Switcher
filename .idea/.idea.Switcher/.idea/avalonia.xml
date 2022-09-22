@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="DNS Switcher/App.axaml" value="DNS Switcher/DNS Switcher.csproj" />
+        <entry key="DNS Switcher/Controls/Animation.axaml" value="DNS Switcher/DNS Switcher.csproj" />
+        <entry key="DNS Switcher/Controls/View/ToggleAnimation.axaml" value="DNS Switcher/DNS Switcher.csproj" />
+        <entry key="DNS Switcher/Views/MainWindow.axaml" value="DNS Switcher/DNS Switcher.csproj" />
+        <entry key="DNS-Switcher/App.axaml" value="DNS-Switcher/DNS-Switcher.csproj" />
+        <entry key="DNS-Switcher/Controls/View/ToggleAnimation.axaml" value="DNS-Switcher/DNS-Switcher.csproj" />
+        <entry key="DNS-Switcher/Views/MainWindow.axaml" value="DNS-Switcher/DNS-Switcher.csproj" />
+        <entry key="Switcher/App.axaml" value="Switcher/Switcher.csproj" />
+        <entry key="Switcher/Controls/View/ToggleAnimation.axaml" value="Switcher/Switcher.csproj" />
+        <entry key="Switcher/Frontend/Controls/View/ToggleAnimation.axaml" value="Switcher/Switcher.csproj" />
+        <entry key="Switcher/Frontend/Views/MainWindow.axaml" value="Switcher/Switcher.csproj" />
+        <entry key="Switcher/Views/MainWindow.axaml" value="Switcher/Switcher.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

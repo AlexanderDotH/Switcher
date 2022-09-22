@@ -4,6 +4,7 @@ using System.Linq;
 using System.Management;
 using System.Net;
 using System.Net.NetworkInformation;
+using System.Threading.Tasks;
 
 namespace Switcher.Utils;
 
@@ -19,6 +20,43 @@ public class Networking
 
         return Nic;
     }
+
+    public static async Task SetIPv4DNS(string server1, string server2, NetworkInterface @interface)
+    {
+        await ProcessUtils.StartProcess(
+            string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.System), "netsh.exe"), 
+            string.Format("interface ipv4 add dnsserver \"{0}\" {1} index=0", @interface.Name, server1), false);
+        
+        await ProcessUtils.StartProcess(
+            string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.System), "netsh.exe"), 
+            string.Format("interface ipv4 add dnsserver \"{0}\" {1} index=1", @interface.Name, server2), false);
+    }
+    
+    public static async Task SetIPv6DNS(string server1, string server2, NetworkInterface @interface)
+    {
+        await ProcessUtils.StartProcess(
+            string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.System), "netsh.exe"), 
+            string.Format("interface ipv6 add dnsserver \"{0}\" {1} index=0", @interface.Name, server1), false);
+        
+        await ProcessUtils.StartProcess(
+            string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.System), "netsh.exe"), 
+            string.Format("interface ipv6 add dnsserver \"{0}\" {1} index=1", @interface.Name, server2), false);
+    }
+    
+    public static async Task DeleteIPv6DNS(NetworkInterface @interface)
+    {
+        await ProcessUtils.StartProcess(
+            string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.System), "netsh.exe"), 
+            string.Format("interface ipv6 delete dnsserver \"{0}\" all", @interface.Name), false);
+    }
+    
+    public static async Task DeleteIPv4DNS(NetworkInterface @interface)
+    {
+        await ProcessUtils.StartProcess(
+            string.Format("{0}\\{1}", Environment.GetFolderPath(Environment.SpecialFolder.System), "netsh.exe"), 
+            string.Format("interface ipv4 delete dnsserver \"{0}\" all", @interface.Name), false);
+    }
+    
     
     public static void SetDNS(string dnsString1, string dnsString2)
     {

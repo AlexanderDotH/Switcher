@@ -1,0 +1,128 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:model="clr-namespace:Switcher.Frontend.Controls.Model">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <model:ToggleAnimation 
+                Width="150"
+                Height="150"
+                Activated="True"></model:ToggleAnimation>
+        </Border>
+    </Design.PreviewWith>
+    
+    <!-- Base Model -->
+    <Style Selector="model|ToggleAnimation">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Background="{TemplateBinding Background}">
+                    <Ellipse Name="PRT_Ellipse1"
+                             StrokeThickness="1"
+                             Width="100"
+                             Height="100"
+                             Stroke="{TemplateBinding model:ToggleAnimation.StrokeColorBrush}"
+                             Fill="{TemplateBinding model:ToggleAnimation.FillColorBrush}">
+                        <Ellipse.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Width" Duration="0:0:0.8" Easing="CircularEaseOut"></DoubleTransition>
+                                <DoubleTransition Property="Height" Duration="0:0:0.8" Easing="CircularEaseOut"></DoubleTransition>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.4" Easing="CircularEaseOut"></DoubleTransition>
+                                <BrushTransition Property="Stroke" Duration="0:0:0.5" Easing="CircularEaseOut"></BrushTransition>
+                                <BrushTransition Property="Fill" Duration="0:0:0.5" Easing="CircularEaseOut"></BrushTransition>
+
+                            </Transitions>
+                        </Ellipse.Transitions>
+                    </Ellipse>
+                    
+                    <Ellipse Name="PRT_Ellipse2"
+                             StrokeThickness="1"
+                             Width="100"
+                             Height="100"
+                             Stroke="{TemplateBinding model:ToggleAnimation.StrokeColorBrush}"
+                             Fill="{TemplateBinding model:ToggleAnimation.FillColorBrush}">
+                        <Ellipse.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Width" Duration="0:0:0.8" Easing="CircularEaseOut"></DoubleTransition>
+                                <DoubleTransition Property="Height" Duration="0:0:0.8" Easing="CircularEaseOut"></DoubleTransition>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.4" Easing="CircularEaseOut"></DoubleTransition>
+                                <BrushTransition Property="Stroke" Duration="0:0:0.5" Easing="CircularEaseOut"></BrushTransition>
+                                <BrushTransition Property="Fill" Duration="0:0:0.5" Easing="CircularEaseOut"></BrushTransition>
+
+                            </Transitions>
+                        </Ellipse.Transitions>
+                    </Ellipse>
+                    
+                    <Ellipse Name="PRT_Ellipse3"
+                             StrokeThickness="1"
+                             Width="100"
+                             Height="100"
+                             Stroke="{TemplateBinding model:ToggleAnimation.StrokeColorBrush}"
+                             Fill="{TemplateBinding model:ToggleAnimation.FillColorBrush}">
+                        <Ellipse.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Width" Duration="0:0:0.8" Easing="CircularEaseOut"></DoubleTransition>
+                                <DoubleTransition Property="Height" Duration="0:0:0.8" Easing="CircularEaseOut"></DoubleTransition>
+                                <DoubleTransition Property="Opacity" Duration="0:0:0.4" Easing="CircularEaseOut"></DoubleTransition>
+                                <BrushTransition Property="Stroke" Duration="0:0:0.5" Easing="CircularEaseOut"></BrushTransition>
+                                <BrushTransition Property="Fill" Duration="0:0:0.5" Easing="CircularEaseOut"></BrushTransition>
+
+                            </Transitions>
+                        </Ellipse.Transitions>
+                    </Ellipse>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+    </Style>
+    
+    <!-- Animation -->
+    <Style Selector="model|ToggleAnimation /template/ Ellipse#PRT_Ellipse1">
+        <Style.Animations>
+            <Animation Duration="0:0:2.5" Delay="0:0:0.0" IterationCount="INFINITE" Easing="CircularEaseOut">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Width" Value="0"></Setter>
+                    <Setter Property="Height" Value="0"></Setter>
+                    <Setter Property="Opacity" Value="1"></Setter>
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Width" Value="100"></Setter>
+                    <Setter Property="Height" Value="100"></Setter>
+                    <Setter Property="Opacity" Value="0"></Setter>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    
+    <Style Selector="model|ToggleAnimation /template/ Ellipse#PRT_Ellipse2">
+        <Style.Animations>
+            <Animation Duration="0:0:2.5" Delay="0:0:0.8" IterationCount="INFINITE" Easing="CircularEaseOut">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Width" Value="0"></Setter>
+                    <Setter Property="Height" Value="0"></Setter>
+                    <Setter Property="Opacity" Value="1"></Setter>
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Width" Value="100"></Setter>
+                    <Setter Property="Height" Value="100"></Setter>
+                    <Setter Property="Opacity" Value="0"></Setter>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    
+    <Style Selector="model|ToggleAnimation /template/ Ellipse#PRT_Ellipse3">
+        <Style.Animations>
+            <Animation Duration="0:0:2.5" Delay="0:0:1.6" IterationCount="INFINITE" Easing="CircularEaseOut">
+                <KeyFrame Cue="0%">
+                    <Setter Property="Width" Value="0"></Setter>
+                    <Setter Property="Height" Value="0"></Setter>
+                    <Setter Property="Opacity" Value="1"></Setter>
+                </KeyFrame>
+                <KeyFrame Cue="100%">
+                    <Setter Property="Width" Value="100"></Setter>
+                    <Setter Property="Height" Value="100"></Setter>
+                    <Setter Property="Opacity" Value="0"></Setter>
+                </KeyFrame>
+            </Animation>
+        </Style.Animations>
+    </Style>
+    <!-- Add Styles Here -->
+</Styles>

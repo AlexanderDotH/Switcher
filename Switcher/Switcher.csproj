@@ -9,8 +9,8 @@
         <RootNamespace>DNS-Switcher</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
-        <Folder Include="Models\" />
         <AvaloniaResource Include="Assets\**" />
+        <Folder Include="Frontend\Models" />
         <None Remove=".gitignore" />
     </ItemGroup>
     <ItemGroup>
@@ -29,5 +29,12 @@
         <PackageReference Include="Material.Avalonia" Version="2.5.1" />
         <PackageReference Include="System.Management" Version="6.0.0" />
         <PackageReference Include="XamlNameReferenceGenerator" Version="1.3.4" />
+    </ItemGroup>
+    <ItemGroup>
+      <AdditionalFiles Include="Frontend\Controls\View\ToggleAnimation.axaml" />
+      <AdditionalFiles Include="Frontend\Views\MainWindow.axaml" />
+    </ItemGroup>
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Controls\View\ToggleAnimation.axaml" />
     </ItemGroup>
 </Project>

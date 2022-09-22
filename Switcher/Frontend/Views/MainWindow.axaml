@@ -1,0 +1,87 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Switcher.Frontend.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:styles="clr-namespace:Material.Styles;assembly=Material.Styles"
+        xmlns:model="clr-namespace:Switcher.Frontend.Controls.Model"
+        xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles" 
+        mc:Ignorable="d"
+        Width="270"
+        Height="340"
+        x:Class="Switcher.Frontend.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        WindowStartupLocation="CenterScreen"
+        TransparencyLevelHint="AcrylicBlur"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome"
+        ExtendClientAreaTitleBarHeightHint="-1"
+        
+        Background="Transparent">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Grid>
+        <ExperimentalAcrylicBorder IsHitTestVisible="True" PointerPressed="InputElement_OnPointerPressed">
+            <ExperimentalAcrylicBorder.Material>
+                <ExperimentalAcrylicMaterial
+                    BackgroundSource="Digger"
+                    TintColor="Black"
+                    TintOpacity="0.8"
+                    MaterialOpacity="0.75" />
+            </ExperimentalAcrylicBorder.Material>
+        </ExperimentalAcrylicBorder>
+        
+        <TextBlock Text="DNS Switcher"
+                   Margin="10,15,0,0"
+                   Foreground="{DynamicResource PrimaryFontColorBrush}"
+                   FontWeight="Bold"
+                   FontSize="18"/>
+        
+        <TextBlock Text="for Adguard"
+                   Margin="10,35,0,0"
+                   Foreground="{DynamicResource PrimaryColorBrush}"
+                   FontSize="12"/>
+        
+        <Button Width="15" 
+                Height="15" 
+                Margin="0,15,15,0"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="{DynamicResource PrimaryColorBrush}"
+                Command="{Binding CloseButton}"/>
+        
+        <model:ToggleAnimation 
+            Name="CTRL_ToggleAnimation"
+            Width="150"
+            Height="150"
+            Margin="0,0,0,40"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"></model:ToggleAnimation>
+        
+        <styles:Card 
+            Width="70" 
+            Height="50" 
+            VerticalAlignment="Bottom" 
+            HorizontalAlignment="Center" 
+            Margin="0,0,0,40"
+            Background="{DynamicResource SecondaryBackgroundBrush}"
+            CornerRadius="7">
+            <ToggleSwitch Name="CTRL_Switch"
+                          VerticalAlignment="Center" 
+                          HorizontalAlignment="Center" 
+                          Width="37"
+                          Foreground="{DynamicResource PrimaryColorBrush}"
+                          Background="{DynamicResource PrimaryColorBrush}"
+                          assists:ToggleSwitchAssist.SwitchTrackOnBackground="{DynamicResource PrimaryColorBrush}"
+                          assists:ToggleSwitchAssist.SwitchTrackOffBackground="{DynamicResource PrimaryBackgroundBrush}"
+                          Checked="ToggleButton_OnChecked" 
+                          Unchecked="ToggleButton_OnUnchecked"></ToggleSwitch>
+        </styles:Card>        
+        
+    </Grid>
+    
+
+</Window>
