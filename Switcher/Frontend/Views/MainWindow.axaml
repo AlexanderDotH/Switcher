@@ -10,13 +10,12 @@
         Width="270"
         Height="340"
         x:Class="Switcher.Frontend.Views.MainWindow"
-        Icon="/Assets/avalonia-logo.ico"
+        Icon="/Assets/switcher-icon.ico"
         WindowStartupLocation="CenterScreen"
         TransparencyLevelHint="AcrylicBlur"
         ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaChromeHints="NoChrome"
         ExtendClientAreaTitleBarHeightHint="-1"
-        
         Background="Transparent">
 
     <Design.DataContext>
