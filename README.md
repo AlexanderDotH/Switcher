@@ -5,6 +5,7 @@
 &nbsp;
 
 <h3>This is the worlds fanciest DNS Switcher for AdGuard!</h3>
+Its basically a system wide adblocker!
 
 \
 &nbsp;
