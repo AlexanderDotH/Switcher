@@ -9,8 +9,6 @@ Its basically a system wide adblocker!
 
 \
 &nbsp;
-\
-&nbsp;
 
 __Features:__
 
