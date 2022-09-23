@@ -19,6 +19,9 @@ __Features:__
 * Works on Windows
 * Has a nice design
 
+## Disclaimer
+In order to set the DNS Server, you have to run this program as administrator!
+
 ## Previews
 
 <p float="left">
