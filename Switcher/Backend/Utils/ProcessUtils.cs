@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Security.Principal;
 using System.Threading.Tasks;
 
 namespace Switcher.Utils;
@@ -21,4 +22,10 @@ public class ProcessUtils
         
         return process.WaitForExitAsync();
     }
+    
+    public static bool IsAdministrator()
+    {
+       return (new WindowsPrincipal(WindowsIdentity.GetCurrent()))
+                 .IsInRole(WindowsBuiltInRole.Administrator);
+    }  
 }

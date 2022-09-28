@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Switcher.Backend.Handler;
 using Switcher.Backend.Helper;
 using Switcher.Frontend.Controls.Model;
 using Switcher.Utils;
@@ -59,6 +60,10 @@ namespace Switcher.Frontend.Views
         private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
         {
             this.BeginMoveDrag(e);
+        }
+
+        private void CHCK_Strict_OnChecked(object? sender, RoutedEventArgs e)
+        {
         }
     }
 }

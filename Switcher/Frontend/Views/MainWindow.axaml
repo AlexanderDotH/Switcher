@@ -8,7 +8,7 @@
         xmlns:assists="clr-namespace:Material.Styles.Assists;assembly=Material.Styles" 
         mc:Ignorable="d"
         Width="270"
-        Height="340"
+        Height="355"
         x:Class="Switcher.Frontend.Views.MainWindow"
         Icon="/Assets/switcher-icon.ico"
         WindowStartupLocation="CenterScreen"
@@ -60,12 +60,20 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"></model:ToggleAnimation>
         
+        <CheckBox Name="CHCK_Strict" 
+                  VerticalAlignment="Bottom"
+                  HorizontalAlignment="Left"
+                  Margin="10,0,0,10"
+                  Background="{DynamicResource PrimaryColorBrush}"
+                  Checked="CHCK_Strict_OnChecked"
+                  Content="Strict mode"></CheckBox>
+        
         <styles:Card 
             Width="70" 
             Height="50" 
             VerticalAlignment="Bottom" 
             HorizontalAlignment="Center" 
-            Margin="0,0,0,40"
+            Margin="0,0,0,60"
             Background="{DynamicResource SecondaryBackgroundBrush}"
             CornerRadius="7">
             <ToggleSwitch Name="CTRL_Switch"
