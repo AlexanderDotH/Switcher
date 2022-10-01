@@ -20,6 +20,9 @@ __Features:__
 ## Disclaimer
 In order to set the DNS Server, you have to run this program as administrator!
 
+## How to use?
+Simply go to the [Releases](https://github.com/AlexanderDotH/Switcher/releases) and install the latest version.
+
 ## Previews
 
 <p float="left">
