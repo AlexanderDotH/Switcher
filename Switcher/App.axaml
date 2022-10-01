@@ -13,6 +13,7 @@
     <Application.Styles>
         <StyleInclude Source="avares://Material.Avalonia/Material.Avalonia.Templates.xaml" />
         <StyleInclude Source="avares://Switcher/Frontend/Controls/View/ToggleAnimation.axaml"/>
+        <StyleInclude Source="avares://Switcher/Frontend/Controls/View/ComboBox.axaml"/>
         <Style>
             <Style.Resources>
                 <SolidColorBrush x:Key="PrimaryColorBrush" Color="#98ff98"></SolidColorBrush>

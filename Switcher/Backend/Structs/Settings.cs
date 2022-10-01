@@ -4,6 +4,6 @@ namespace Switcher.Backend.Structs;
 
 public class Settings
 {
-    [JsonProperty("Strict")] 
-    public bool StrictMode { get; set; }
+    [JsonProperty("Server")] 
+    public EnumServerType ServerType { get; set; }
 }

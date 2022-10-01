@@ -14,11 +14,16 @@ public class SettingsHandler
 
     public SettingsHandler()
     {
-        this._directory = string.Format("{0}{1}Switcher{1}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Path.PathSeparator);
+        this._directory = string.Format("{0}{1}Switcher{1}", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), Path.DirectorySeparatorChar);
 
         if (!Directory.Exists(this._directory))
         {
             Directory.CreateDirectory(this._directory);
+            this._settings = CreateDefaultSettings();
+            this.Write();
+        }
+        else if (!File.Exists(this._directory + "Settings.json"))
+        {
             this._settings = CreateDefaultSettings();
             this.Write();
         }
@@ -32,7 +37,7 @@ public class SettingsHandler
     {
         Settings settings = new Settings();
         
-        settings.StrictMode = false;
+        settings.ServerType = EnumServerType.Default;
 
         return settings;
     }
@@ -40,9 +45,6 @@ public class SettingsHandler
     public Settings Read()
     {
         FileInfo fi = new FileInfo(this._directory + "Settings.json");
-        
-        if (this._settings == null)
-            return null;
         
         if (!fi.Exists)
             return null;
@@ -70,9 +72,9 @@ public class SettingsHandler
         
         if (this._settings == null)
             return;
-        
+
         if (!fi.Exists)
-            return;
+            File.Create(fi.FullName);
 
         string contentAsJson = JsonConvert.SerializeObject(this._settings, Formatting.Indented);
         File.WriteAllText(fi.FullName, contentAsJson);

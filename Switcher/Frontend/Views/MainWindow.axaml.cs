@@ -4,8 +4,10 @@ using Avalonia.Input;
 using Avalonia.Interactivity;
 using Switcher.Backend.Handler;
 using Switcher.Backend.Helper;
+using Switcher.Backend.Structs;
 using Switcher.Frontend.Controls.Model;
 using Switcher.Utils;
+using ComboBox = Avalonia.Controls.ComboBox;
 
 namespace Switcher.Frontend.Views
 {
@@ -13,6 +15,7 @@ namespace Switcher.Frontend.Views
     {
         private ToggleAnimation _toggleAnimation;
         private ToggleSwitch _toggleSwitch;
+        private ComboBox _serverSelector;
 
         private bool _canBeChanged;
         
@@ -27,6 +30,28 @@ namespace Switcher.Frontend.Views
 
             bool isSet = AdGuardHelper.IsDNSSet();
 
+            this._serverSelector = this.Get<ComboBox>(nameof(CMBO_Family));
+
+            EnumServerType server = EnumServerType.Default;
+
+            if (SettingsHandler.Instance.Settings.ServerType != null)
+                server = SettingsHandler.Instance.Settings.ServerType;
+
+            switch (server)
+            {
+                case EnumServerType.Family:
+                    this._serverSelector.SelectedIndex = 1;
+                    break;
+                
+                case EnumServerType.No_Filter:
+                    this._serverSelector.SelectedIndex = 2;
+                    break;
+                
+                default:
+                    this._serverSelector.SelectedIndex = 0;
+                    break;
+            }
+            
             this._toggleSwitch.IsChecked = isSet;
             this._toggleAnimation.Activated = isSet;
             
@@ -60,10 +85,6 @@ namespace Switcher.Frontend.Views
         private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
         {
             this.BeginMoveDrag(e);
-        }
-
-        private void CHCK_Strict_OnChecked(object? sender, RoutedEventArgs e)
-        {
         }
     }
 }

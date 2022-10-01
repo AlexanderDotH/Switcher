@@ -3,6 +3,10 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="Switcher/App.axaml" value="Switcher/Switcher.csproj" />
+        <entry key="Switcher/Frontend/Controls/Model/ComboBox.axaml" value="Switcher/Switcher.csproj" />
+        <entry key="Switcher/Frontend/Controls/View/ComboBox.axaml" value="Switcher/Switcher.csproj" />
+        <entry key="Switcher/Frontend/Controls/View/ToggleAnimation.axaml" value="Switcher/Switcher.csproj" />
         <entry key="Switcher/Frontend/Views/MainWindow.axaml" value="Switcher/Switcher.csproj" />
       </map>
     </option>
