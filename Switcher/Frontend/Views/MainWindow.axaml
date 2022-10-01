@@ -60,8 +60,6 @@
             VerticalAlignment="Center"
             HorizontalAlignment="Center"></model:ToggleAnimation>
         
-        
-        
         <styles:Card 
             Width="230" 
             Height="80" 
@@ -84,7 +82,8 @@
                           Background="{DynamicResource SecondaryBackgroundBrush}"
                           PlaceholderText="Default"
                           Foreground="{DynamicResource PrimaryFontColorBrush}"
-                          PlaceholderForeground="{DynamicResource PrimaryBackgroundBrush}">
+                          PlaceholderForeground="{DynamicResource PrimaryBackgroundBrush}"
+                           SelectionChanged="CMBO_Family_OnSelectionChanged">
                     <ComboBoxItem Content="Default"></ComboBoxItem>
                     <ComboBoxItem Content="Family"></ComboBoxItem>
                     <ComboBoxItem Content="No filter"></ComboBoxItem>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.IO;
 using Newtonsoft.Json;
 using Switcher.Backend.Structs;
@@ -53,16 +54,7 @@ public class SettingsHandler
         if (stream == null)
             return null;
 
-
-        Stream file = File.Open(fi.FullName, FileMode.Open, FileAccess.Read);
-        StreamReader reader = new StreamReader(file);
-
-        string content = reader.ReadToEnd();
-
-        reader.Close();
-        file.Close();
-
-        Settings settings = JsonConvert.DeserializeObject<Settings>(content);
+        Settings settings = JsonConvert.DeserializeObject<Settings>(File.ReadAllText(fi.FullName));
         return settings;
     }
     
@@ -72,9 +64,6 @@ public class SettingsHandler
         
         if (this._settings == null)
             return;
-
-        if (!fi.Exists)
-            File.Create(fi.FullName);
 
         string contentAsJson = JsonConvert.SerializeObject(this._settings, Formatting.Indented);
         File.WriteAllText(fi.FullName, contentAsJson);

@@ -1,7 +1,10 @@
+using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using Avalonia.Threading;
 using Switcher.Backend.Handler;
 using Switcher.Backend.Helper;
 using Switcher.Backend.Structs;
@@ -63,11 +66,8 @@ namespace Switcher.Frontend.Views
             if (!this._canBeChanged)
                 return;
             
-            Task task = Task.Factory.StartNew(async () =>
-            {
-                await AdGuardHelper.SetDNSServer();
-            });
-            this._toggleAnimation.Activated = true;
+            Task t = this.SetServer();
+            this.SetStateAfterTask(t, true);
         }
 
         private void ToggleButton_OnUnchecked(object? sender, RoutedEventArgs e)
@@ -75,16 +75,91 @@ namespace Switcher.Frontend.Views
             if (!this._canBeChanged)
                 return;
             
-            Task task = Task.Factory.StartNew(async () =>
-            {
-                await AdGuardHelper.DeleteDNSServer();
-            });
-            this._toggleAnimation.Activated = false;
+            Task t = this.UnsetServer();
+            this.SetStateAfterTask(t, false);
         }
 
         private void InputElement_OnPointerPressed(object? sender, PointerPressedEventArgs e)
         {
             this.BeginMoveDrag(e);
+        }
+
+        private void CMBO_Family_OnSelectionChanged(object? sender, SelectionChangedEventArgs e)
+        {
+            if (!this._canBeChanged)
+                return;
+            
+            switch (this._serverSelector.SelectedIndex)
+            {
+                case 1:
+                {
+                    SettingsHandler.Instance.Settings.ServerType = EnumServerType.Family;
+                    SettingsHandler.Instance.Write();
+                    ResetServer();
+                    break;
+                }
+                case 2:
+                {
+                    SettingsHandler.Instance.Settings.ServerType = EnumServerType.No_Filter;
+                    SettingsHandler.Instance.Write();
+                    ResetServer();
+                    break;
+                }
+                default:
+                {
+                    SettingsHandler.Instance.Settings.ServerType = EnumServerType.Default;
+                    SettingsHandler.Instance.Write();
+                    ResetServer();
+                    break;
+                }
+            }
+        }
+
+        private void ResetServer()
+        {
+            UnsetServer();
+            
+            if (!this._toggleAnimation.Activated)
+                return;
+            
+            SetServer();
+        }
+        
+        private Task SetServer()
+        {
+            Task task = Task.Factory.StartNew(async () =>
+            {
+                await AdGuardHelper.SetDNSServer();
+            });
+            return task;
+        }
+
+        private Task UnsetServer()
+        {
+            Task task = Task.Factory.StartNew(async () =>
+            {
+                await AdGuardHelper.DeleteDNSServer();
+            });
+            return task;
+        }
+
+        private void SetStateAfterTask(Task t, bool value)
+        {
+            this._canBeChanged = false;
+            
+            this._toggleSwitch.IsChecked = false;
+            
+            Task task = Task.Factory.StartNew(async () =>
+            {
+                await t;
+                
+                Dispatcher.UIThread.InvokeAsync(() =>
+                {
+                    this._toggleAnimation.Activated = value;
+                    this._toggleSwitch.IsChecked = value;
+                    this._canBeChanged = true;
+                });
+            });
         }
     }
 }
