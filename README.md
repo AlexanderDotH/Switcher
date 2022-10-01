@@ -23,8 +23,8 @@ In order to set the DNS Server, you have to run this program as administrator!
 ## Previews
 
 <p float="left">
-  <img src="https://alexh.space/images/preview-disabled.png" width="250" />
-  <img src="https://alexh.space/images/preview-enabled.png" width="255" /> 
+  <img src="https://alexh.space/images/preview-disabled-new.png" width="250" />
+  <img src="https://alexh.space/images/preview-enabled-new.png" width="249" /> 
 </p>
 
 
